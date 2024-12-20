@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('projects');
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout></Layout>
+<h1>My Projects</h1>
+    <p>
+      Welcome to my projects page! Here you’ll find a collection of the work I’ve done as I learn and grow in my journey as a developer. Each project showcases my skills, creativity, and dedication to building something meaningful.
+    </p>
+
+    <ul>
+    {posts.map(post => (
+        <li><a href={`/projects/${post.id}`}>{post.data.title}</a></li>
+    ))}
+    </ul>
+
+</Layout>
